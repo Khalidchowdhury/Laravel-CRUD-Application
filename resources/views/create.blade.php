@@ -14,19 +14,19 @@
                 @csrf
                 <div class="form-group">
                     <label for="">Name</label>
-                    <input name="name" class="form-control" type="text">
+                    <input name="name" class="form-control" type="text" value="{{ old('name') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Email</label>
-                    <input name="email" class="form-control" type="email">
+                    <input name="email" class="form-control" type="email" value="{{ old('email') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Phone</label>
-                    <input name="phone" class="form-control" type="text">
+                    <input name="phone" class="form-control" type="text" value="{{ old('phone') }}">
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input name="password" class="form-control" type="password">
+                    <input name="password" class="form-control" type="password" {{ old('password') }}>
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Add Now">

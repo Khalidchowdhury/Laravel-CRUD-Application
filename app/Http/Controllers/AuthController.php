@@ -63,17 +63,28 @@ class AuthController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $edit_data = auth::findOrFail($id);
+        return view('edit', [
+            'edit_data'    => $edit_data
+        ]) -> with('success', 'your account information has been change');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $update_data = auth::findOrFail($id);
+
+        $update_data -> update([
+            'name'      => $request -> name,
+            'email'     => $request -> email,
+            'phone'     => $request -> phone,
+            'password'  => $request -> password,
+        ]);
+        return back() -> with('success', 'Your Update Has been Changed');
     }
 
     /**
@@ -86,4 +97,10 @@ class AuthController extends Controller
 
         return redirect() -> route('store.page') -> with('success', 'Your Account Has Been Delete Successfully');
     }
+
+
+
+
+
+
 }
