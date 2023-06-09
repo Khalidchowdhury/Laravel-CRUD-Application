@@ -30,7 +30,7 @@ class AuthController extends Controller
             'phone'     => $request -> phone,
             'password'  => password_hash($request -> password, PASSWORD_DEFAULT),
         ]);
-        return redirect() -> route('create.page') -> with('success', 'your account create has been success');
+        return redirect() -> route('create.page') -> with('success', 'your account create has been success') -> compact('auth');
     }
 
 
@@ -40,18 +40,24 @@ class AuthController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function view($id)
     {
-        //
+        $auth = auth::findOrFail($id);
+        return view('view', [
+            'auth'  => $auth
+        ]);
     }
 
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $auths = auth::all();
+        return view('store', [
+            'auths' => $auths
+        ]);
     }
 
     /**

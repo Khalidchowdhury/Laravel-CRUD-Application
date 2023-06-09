@@ -30,6 +30,7 @@
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Add Now">
+                    <a href="{{ route('store.page') }}" class="pl-3">Store Page</a>
                 </div>
             </form>
 
