@@ -32,7 +32,7 @@
                 <tbody>
                     @foreach ( $auths as $auth )
                     <tr>
-                        <td>1</td>
+                        <td>{{ $loop->index +1 }}</td>
                         <td>{{ $auth->name }}</td>
                         <td>{{ $auth->email }}</td>
                         <td>{{ $auth->phone }}</td>
@@ -40,7 +40,7 @@
                         <td>
                             <a class="btn btn-sm btn-info" href="{{ route('view.page', $auth -> id) }}">View</a>
                             <a class="btn btn-sm btn-warning" href="#">Edit</a>
-                            <a class="btn btn-sm btn-danger" href="#">Delete</a>
+                            <a class="btn btn-sm btn-danger" href="{{ route('delete.page', $auth -> id) }}">Delete</a>
                         </td>
                     </tr>
                     @endforeach

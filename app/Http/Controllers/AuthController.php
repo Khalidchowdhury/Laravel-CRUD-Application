@@ -54,7 +54,7 @@ class AuthController extends Controller
      */
     public function store()
     {
-        $auths = auth::all();
+        $auths = auth::latest() -> get();
         return view('store', [
             'auths' => $auths
         ]);
@@ -79,8 +79,11 @@ class AuthController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $delete_data = auth::findOrFail($id);
+        $delete_data ->  delete();
+
+        return redirect() -> route('store.page') -> with('success', 'Your Account Has Been Delete Successfully');
     }
 }

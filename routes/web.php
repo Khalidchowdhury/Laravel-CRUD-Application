@@ -13,7 +13,8 @@ Route::post('/create', [ AuthController::class, 'create' ]) -> name('create.page
 Route::get('/', [ AuthController::class, 'store']) -> name('store.page');
 // View Route
 Route::get('/view/{id}', [ AuthController::class, 'view' ]) -> name('view.page');
-
+// Delete Route
+Route::get('delete/{id}', [ AuthController::class, 'destroy' ]) -> name('delete.page');
 
 
 
