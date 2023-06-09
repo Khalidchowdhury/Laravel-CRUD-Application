@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ( $auths as $auth )
+                    @forelse ( $auths as $auth )
                     <tr>
                         <td>{{ $loop->index +1 }}</td>
                         <td>{{ $auth->name }}</td>
@@ -43,7 +43,11 @@
                             <a class="btn btn-sm btn-danger" href="{{ route('delete.page', $auth -> id) }}">Delete</a>
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="6" class="text-center"><h4>No User Found</h4></td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
             {{-- table end --}}

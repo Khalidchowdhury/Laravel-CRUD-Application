@@ -1,8 +1,0 @@
-File Structure 
-Process {
-    1. Create {{ Complete }}
-    2. view {{  }}
-    3. Edit
-    4. Delete
-    5. Store {{ Complete }}
-}

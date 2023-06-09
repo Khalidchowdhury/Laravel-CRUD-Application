@@ -30,7 +30,7 @@ class AuthController extends Controller
             'phone'     => $request -> phone,
             'password'  => password_hash($request -> password, PASSWORD_DEFAULT),
         ]);
-        return redirect() -> route('create.page') -> with('success', 'your account create has been success') -> compact('auth');
+        return redirect() -> route('create.page') -> with('success', 'your account create has been success');
     }
 
 
